@@ -26,3 +26,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('/events', 'EventController');
 Route::resource('/guests', 'GuestController');
 Route::get('/events/{event}/invite/{guest}', 'EventController@invite');
+Route::get('/rsvp/api_token={token}', 'RsvpController@rsvp');
+Route::post('/rsvp/response', 'RsvpController@response');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

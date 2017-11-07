@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    <h1 style="text-align: center;">Welcome to the Event and Guest Management Panel</h1>
+                    You are logged in!
                 </div>
             </div>
         </div>

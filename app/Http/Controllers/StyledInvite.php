@@ -20,11 +20,13 @@ class StyledInvite extends Mailable
      */
     public $event;
     public $guest;
+    public $token;
 
-    public function __construct(Event $event, Guest $guest)
+    public function __construct(Event $event, Guest $guest, $token)
     {
        $this->guest = $guest;
        $this->event = $event;
+       $this->token = $token;
     }
 
     /**

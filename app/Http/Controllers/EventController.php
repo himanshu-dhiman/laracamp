@@ -7,6 +7,7 @@ use app\Event;
 use app\EventGuest;
 use app\Guest;
 use app\Http\Controllers\StyledInvite;
+use app\Rsvp;
 
 class EventController extends Controller
 {
@@ -111,7 +112,10 @@ class EventController extends Controller
         // else :
             EventGuest::create(['event_id' => $event->id, 'guest_id' => $guest->id]);
         // endif;
-            \Mail::to($guest->email)->send(new StyledInvite($event, $guest));
+            $token = str_random(32);
+            $invitation = EventGuest::latest('id')->first();
+            Rsvp::create(['guest_id' => $guest->id, 'token' => $token, 'invite_id' => $invitation->id, 'status' => '0']);
+            \Mail::to($guest->email)->send(new StyledInvite($event, $guest, $token));
             return redirect('/events/'.$event->id);
     }
 }

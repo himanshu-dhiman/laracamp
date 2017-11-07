@@ -12,4 +12,9 @@ class Guest extends Model
     {
     	return $this->hasMany(EventGuest::class);
     }
+
+    public function guestInvite()
+    {
+    	return $this->hasMany(Rsvp::class);
+    }
 }

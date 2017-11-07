@@ -5,8 +5,7 @@ The Laracamp Team invites you to join us for a celebration of <b>{{ $event->name
 
 Please Respond us back with the status of your presence, on the below link.
 
-
-@component('mail::button', ['url' => ''])
+@component('mail::button', ['url' => 'laracamp.dev/rsvp/api_token='.$token])
 Click Here to Respond to Invitation
 @endcomponent
 
